@@ -29,10 +29,10 @@ def criar_histograma(variavel, bins, nome_variavel, passo):
     plt.close()
 
 
-# criar_histograma('Desconto_MinMax', 80, "Descontos mínimos e máximos", 10)
-# criar_histograma('Nota_MinMax',80, 'Notas máximos e mínimas', 1 )
-# criar_histograma('Preço_MinMax', 80, "Preços mínimos e máximos", 10)
-# criar_histograma('Marca_Cod', 80, 'Marcas por código', 1)
+criar_histograma('Desconto_MinMax', 80, "Descontos mínimos e máximos", 10)
+criar_histograma('Nota_MinMax',80, 'Notas máximos e mínimas', 1 )
+criar_histograma('Preço_MinMax', 80, "Preços mínimos e máximos", 10)
+criar_histograma('Marca_Cod', 80, 'Marcas por código', 1)
 
 # Gráfico de dispersão
 def criar_dispersao(x,y, nome_variavelX, nome_variavelY):
@@ -48,8 +48,8 @@ def criar_dispersao(x,y, nome_variavelX, nome_variavelY):
     plt.savefig('Gráficos de Dispersão/'+x + '_por_' + y + '_dispersao')
     plt.close()
 
-# criar_dispersao('Marca_Cod', 'Preço_MinMax', 'Código da Marca', 'Preços mínimos e máximos')
-# criar_dispersao('Desconto_MinMax', 'Nota_MinMax', 'Descontos mínimos e máximos', 'Notas mínimas e máximas')
+criar_dispersao('Marca_Cod', 'Preço_MinMax', 'Código da Marca', 'Preços mínimos e máximos')
+criar_dispersao('Desconto_MinMax', 'Nota_MinMax', 'Descontos mínimos e máximos', 'Notas mínimas e máximas')
 
 # Mapa de calor
 def criar_mapa_calor(a,b,c,d,e,f):
@@ -59,7 +59,7 @@ def criar_mapa_calor(a,b,c,d,e,f):
     plt.savefig('Mapa de calor/mapa_calor_{}_{}_{}_{}_{}_{}'.format(a,b,c,d,e,f))
     plt.close()
 
-#criar_mapa_calor('Preço_MinMax','Nota_MinMax' ,'Qtd_Vendidos_Cod','Nota_MinMax', 'Marca_Cod', 'Desconto_MinMax')
+criar_mapa_calor('Preço_MinMax','Nota_MinMax' ,'Qtd_Vendidos_Cod','Nota_MinMax', 'Marca_Cod', 'Desconto_MinMax')
 
 # # Gráfico de barra
 def criar_barras(variavel,nome_variavel, width,passo):
@@ -77,10 +77,10 @@ def criar_barras(variavel,nome_variavel, width,passo):
     plt.savefig('Gráfico de barras/barras-{}'.format(nome_variavel))
     plt.close()
 
-# criar_barras('Desconto_MinMax', 'Descontos mínimos e máximos',0.01,0.05)
-# criar_barras('Nota_MinMax', 'Notas mínimas e máximas',0.01,0.05)
-# criar_barras('Preço_MinMax',"Preços mínimos e máximos",0.01,0.05)
-# criar_barras('Marca_Cod', 'Marcas por código',1,100)
+criar_barras('Desconto_MinMax', 'Descontos mínimos e máximos',0.01,0.05)
+criar_barras('Nota_MinMax', 'Notas mínimas e máximas',0.01,0.05)
+criar_barras('Preço_MinMax',"Preços mínimos e máximos",0.01,0.05)
+criar_barras('Marca_Cod', 'Marcas por código',1,100)
 
 # # Gráfico de pizza
 def criar_pizza(variavel, nome_variavel):
@@ -92,10 +92,10 @@ def criar_pizza(variavel, nome_variavel):
     plt.savefig('Gráficos de Pizza/pizza_' + nome_variavel)
     plt.close()
 
-# criar_pizza('Desconto', 'Descontos')
-# # criar_pizza('Marca_Cod', 'Marcas por código')
-# criar_pizza('Nota', 'Notas')
-# criar_pizza('Preço',"Preços")
+criar_pizza('Desconto', 'Descontos')
+# criar_pizza('Marca_Cod', 'Marcas por código')
+criar_pizza('Nota', 'Notas')
+criar_pizza('Preço',"Preços")
 
 # # Gráfico de densidade
 def criar_densidade(variavel, nome_variavel):
@@ -106,10 +106,10 @@ def criar_densidade(variavel, nome_variavel):
     plt.savefig('Gráficos de Densidade/densidade_' + nome_variavel)
     plt.close()
 
-# criar_densidade('Desconto', 'Descontos')
-# criar_densidade('Marca_Cod', 'Marcas por código')
-# criar_densidade('Nota', 'Notas')
-# criar_densidade('Preço',"Preços")
+criar_densidade('Desconto', 'Descontos')
+criar_densidade('Marca_Cod', 'Marcas por código')
+criar_densidade('Nota', 'Notas')
+criar_densidade('Preço',"Preços")
 
 # # Gráfico de Regressão
 def criar_regressao(x, y, nomeX, nomeY, a):
