@@ -1,0 +1,73 @@
+
+1. Coleta de Dados
+	- A coleta de dados é a etapa em que os dado são solicitados, adquiridos, medidos, obtidos, gerados, etc.
+	- Geralmente, a necessidade da criação de um modelo se origina de uma questão de pesquisa. Por exemplo, "Qual o perfil de compras dos clientes da loja X?", "Quais as chances de um cliente se inadimplente?". Essa questão norteia também a coleta de dados, o tipo de informação que deseja-se investigar, quais fatores deseja-se avaliar.
+	- Os dados disponíveis para a análise podem estar limitados ao que é fornecido por terceiros, clientes, ou pela base da própria empresa. Ou, podem ser previamente definidos e, a partir daí, iniciar-se a coleta dos dados.
+	- Essa etapa geralmente involve a integração com outras ferramentas, softwares e APIs para o acesso e obtenção dos dados.
+
+2. Preparação dos Dados
+	- A preparação de dados inicia-se com sua exploração, identificação de erros e suas correções. É preciso conhecer as informações disponíveis, identificar quais campos são relevantes e descartar quais não são, identificar se quais variáveis são categóricas ou numéricas, corrigir valores nulos, ausentes, com erros de digitação, ou formatação, e erros de tipo de variável.
+	- A exploração deve identificar e tratar os possíveis outliers.
+	- A segunda parte do tratamento dos dados depende do modelo de aprendizagem escolhido. Cada modelo terá suas especificações, tais como separação de base teste e treino e separação das variáveis explicativas e alvo - no vaso de aprendizado supervisionado -, balanceamento e/ou padronização dos dados, transformação das variáveis categóricas, etc.
+	- O modelo escolhido foi Naive Bayes, a preparação de dados para ele consiste em:
+		a. Separação em base de treino e base de teste, separa entre variáveis explicativas e alvo. 
+		b. Balancear a base de teste (não a base de treino).
+		c. Aplicação da Correção de Laplace: é uma técnica que adiciona uma contagem fictícia para evitar probabilidades zero durante o cálculo do modelo.
+3. Escolha do Modelo
+	- Os modelos de aprendizagem supervisionada apresentados no curso, até o momento, são:
+		- Regressão linear.
+		- Naive Bayes.
+		- Árvore de Decisão.
+		- Regressão Logística.
+
+| Método                  | Tipo de Problema Principal                           | Suposições/Características                                          | Vantagens                                                  | Limitações                                                                   |
+| ----------------------- | ---------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **Regressão Linear**    | Regressão (variáveis contínuas)                      | Relação linear entre variáveis independentes e dependente           | Simples, interpretável, rápido                             | Não lida bem com dados não lineares, sensível a outliers                     |
+| **Naive Bayes**         | Classificação                                        | Supõe independência entre as variáveis preditoras (forte suposição) | Rápido, funciona bem em textos e alta dimensionalidade     | Pode perder precisão quando variáveis são correlacionadas                    |
+| **Árvore de Decisão**   | Classificação e Regressão                            | Divide os dados em regras hierárquicas baseadas em atributos        | Fácil de interpretar, lida com dados não lineares e mistos | Pode sobreajustar (overfitting), instável a pequenas variações nos dados     |
+| **Regressão Logística** | Classificação binária (ou multiclasse com extensões) | Modela a probabilidade usando função sigmoide                       | Probabilística, interpretável, eficaz em dados lineares    | Limita-se a fronteiras lineares, pode precisar de transformação de variáveis |
+
+
+	- O modelo escolhido foi: Aprendizagem Bayesiana: Naive bayes.
+		- Baseado no Teorema de Bayes: uma fórmula matemática usada para atualizar a probabilidade de uma hipótese com base em novos dados.
+		- O modelo assume independência condicional entre as características, ou seja, assume que todas as variáveis de entrada são independentes entre si. Essa simplificação é vantajosa para a facilitação da aplicação do modelo, mas pode prejudicar o desempenho do modelo, especialmente com bases de dados desbalanceadas e com características correlacionadas. 
+		- É indicado para problemas de classificação.
+		- Permite incorporar evidências novas de forma sistemática.
+4. Treinamento do Modelo
+		- Para o treinamento, o modelo usa a biblioteca SciKit Learn, especificamente o pacote `naive_bayes` e objeto `GaussianNB`.
+		- Assim como nos demais modelos, o treinamento envolve:
+			- Instanciar o objeto do modelo: `model = GaussianNB()`.
+			- Aplicar o treinamento: `model.fit(X_train, y_train)`.
+5. Avaliação do Modelo
+	- A avaliação dos modelos consiste em comparar as previsões da variável alvo (y), geradas pelo modelo aplicado a base de teste, aos valores reais dessa base, seus rótulos.
+deve ser feita com métricas como acurácia, precisão, recall, F1 score, falsos positivos e falsos negativos, etc.
+	- Para cada modelo há um conjunto mais indicado de métricas para avaliá-los, assim como a importância de cada métrica pode alterar de modelo para modelo.
+	- Para avaliar o desempenho de um modelo Naive Bayes, é sugerido a associação da avaliação da acurácia, recall e f1-score com a matriz de confusão. A matriz de confusão é uma ferramenta que exibe o número de previsões corretas e incorretas para cada classe. Sua análise ajuda a identificar padrões de erro e avaliar a eficácia do modelo em diferentes categorias.
+	- Para a avaliação dos modelos, os pacotes `accuracy_score` e `confusion_matrix` do pacote `metrics` da biblioteca SciKit Learn.
+
+6. Ajuste e Otimização
+
+* Pré-processamento dos dados**: limpeza, remoção de valores ausentes e transformação de atributos categóricos em numéricos.
+* **Escolha da variação adequada**: GaussianNB, MultinomialNB ou BernoulliNB conforme o tipo de dado.
+* **Seleção de atributos**: eliminar variáveis irrelevantes para reduzir ruído e melhorar desempenho.
+* **Balanceamento das classes**: técnicas como oversampling/undersampling ou uso de pesos.
+* **Validação cruzada**: para encontrar os melhores parâmetros e evitar overfitting.
+* **Ajuste de suavização (parâmetro α)**: regula a Laplace smoothing, evitando probabilidades nulas.
+
+---
+
+### **Implantação e Monitoramento (Naive Bayes)**
+
+* **Implantação em produção**: integração do modelo em APIs, sistemas ou pipelines de dados.
+* **Monitoramento de desempenho**: acompanhamento da acurácia, precisão, recall e F1-score ao longo do tempo.
+* **Detecção de drift de dados**: verificar se a distribuição dos dados de entrada mudou (data drift).
+* **Re-treinamento periódico**: atualizar o modelo quando houver novos dados ou mudanças no padrão.
+* **Registro e logging**: salvar previsões, erros e métricas para auditoria.
+* **Escalabilidade**: garantir que o modelo responda rapidamente a grandes volumes de dados.
+
+---
+
+Quer que eu monte um **resumão em tabela** só com palavras-chave (tipo check-list) ou prefere que fique nesse formato de explicação curta por item?
+
+
+
