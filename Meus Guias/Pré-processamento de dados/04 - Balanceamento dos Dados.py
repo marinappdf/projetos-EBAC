@@ -9,6 +9,16 @@ import matplotlib.pyplot as plt
 
 #$ Análise da Distribuição da Variável Alvo
 
+alvo_y = 'Annual Income (k$)'
+contagem_alvo = df[alvo_y].value_counts(normalize=True) * 100
+plt.figure(figsize=(8, 4))
+ax = contagem_alvo.plot(kind='bar')
+ax.set_xlabel(alvo_y)
+ax.set_ylabel('Frequência')
+plt.xticks(ticks=range(10,100,10),rotation=0)
+
+plt.show()
+
 contagem_churn = df['CHURN'].value_counts()
 
 # Calcular e imprimir as porcentagens dos valores na coluna 'churn'
@@ -17,6 +27,14 @@ print((df['Churn'].value_counts(normalize=True) * 100))
 
 plt.figure(figsize=(8, 6))
 churn_counts.plot(kind='bar', color=['blue', 'orange'])
+
+plt.figure(figsize=(8, 4))
+ax = contagem_alvo.plot(kind='bar')
+ax.set_xlabel(alvo_y)
+ax.set_ylabel('Frequência')
+plt.xticks(ticks=range(10,100,10),rotation=0)
+
+plt.show()
 
 #$ Under-sampling (Subamostragem)
 # Reduzir a classe majoritária para equilibrar com a classe minoritária
@@ -31,14 +49,20 @@ churn_counts.plot(kind='bar', color=['blue', 'orange'])
 # Baseado na interpolação entre exemplos existentes da classe minoritária
 
 
-from imblearn.over_sampling import SMOTE
+    from imblearn.over_sampling import SMOTE
 
-smote = SMOTE(random_state=42)
-X_train_balanced, y_train_balanced = smote.fit_resample(X_train, y_train)
-train_balance = y_train_balanced.value_counts()
+    smote = SMOTE(random_state=42)
+    X_train_balanced, y_train_balanced = smote.fit_resample(X_train, y_train)
+    train_balance = y_train_balanced.value_counts()
 
 print("Balanceamento em y_train:")
 print(train_balance)
+
+# Padronizando os dados
+scaler = StandardScaler()
+# Ajustando e transformando os dados de treino balanceados
+X_train_balanced_scaled = scaler.fit_transform(X_train_balanced)
+X_test_scaled = scaler.transform(X_test)
 
 #$ Boa prática: salvar em novos arquivos .csv
 

@@ -8,19 +8,45 @@ import pandas as pd
 #$ 
 
 df = pd.read_csv("CHURN_TELECON_MOD08_TAREFA.csv", delimiter=';')
-
+df.head(10)
 #$ # Análise Exploratória
 
-df.head(10)
+
 df.sort_values(by='Idoso', ascending=False).head(10)
-print(df['PhoneService'].unique())
+print(f"Dimensões da base {df.shape}\n")
+print("Verificando o tipo de dados das colunas:\n")
+df.info()
+print("\nVerificando valores nulos na base de dados:\n")
+print(df.isnull().sum())
+print("\nVerificando valores únicos nas colunas categóricas:\n")
+for coluna in df:
+    if df[coluna].dtype != 'int64' and df[coluna].dtype != 'float64':
+        print(df[coluna].unique())
+print("\nVerificando estatísticas descritivas da base de dados:\n")
 df.describe()
-print(df.shape)
+
 
 # Tabelas com estatística básica para variáveis categóricas
 contagem_por_esporte = df['Esporte'].value_counts(normalize=True).reset_index()
 mediana_esporte = df.groupby('Esporte')['Ganhos_Totais'].median().reset_index().sort_values(by='Ganhos_Totais', ascending=False)
 desvio_padrao_por_esporte = df.groupby('Esporte')['Ganhos_Totais'].std().reset_index()
+
+
+for coluna in df:
+    if df[coluna].dtype != 'int64' and df[coluna].dtype != 'float64':
+        for categoria in df[coluna].unique():
+            print(f"A coluna {coluna} possui {df[df[coluna] == categoria].shape[0]} registros na categoria {categoria}")
+
+
+categoria = 'Gender'
+contagem_categoria = df[categoria].value_counts(normalize=True).reset_index()
+print(f"\n {contagem_categoria}\n")
+for coluna in df:
+    if coluna != categoria:
+        
+        media = df.groupby(categoria)[coluna].mean().reset_index().sort_values(by=coluna, ascending=False)
+        desvio_padrao_categoria = df.groupby(categoria)[coluna].std().reset_index()
+        print(f"{meedia} \n\n {desvio_padrao_categoria}\n")
 
 
 

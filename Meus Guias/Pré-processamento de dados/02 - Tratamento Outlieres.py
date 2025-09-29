@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import plotly.express as px
-import plotly.express as px
+from plotly.subplots import make_subplots
 
 df = pd.read_csv("CHURN_CREDIT_MOD15_PRATICA_2.CSV", delimiter=",")
 df.head()

@@ -5,9 +5,9 @@
 
 from sklearn.preprocessing import LabelEncoder
 label_encoder = LabelEncoder()
-df['Genero_encoded'] = label_encoder.fit_transform(df['Genero'])
-
-
+df['Gender_encoded'] = label_encoder.fit_transform(df['Gender'])
+df.drop(['Gender'], axis = 1, inplace=True)
+df.head(5)
 
 #$ One Hot Encoding
 # Cada coluna é transformada em duas colunas representando os valores possíveis (0 ou 1).
