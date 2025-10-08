@@ -1,0 +1,194 @@
+{
+  "main": {
+    "id": "19b7a105e5233451",
+    "type": "split",
+    "children": [
+      {
+        "id": "8dcb81e6723833da",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "70a086a8695d17c5",
+            "type": "leaf",
+            "state": {
+              "type": "marp-preview-view",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Deck Preview"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "24bc206952c1df99",
+    "type": "split",
+    "children": [
+      {
+        "id": "d790cd59d860ea19",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d34ca6222bfce3a4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "77711a7b6f8e9043",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d6c486ecb17617e8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "582234fa7cd79abb",
+    "type": "split",
+    "children": [
+      {
+        "id": "dc47c04ff0f2ba1f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ead452926452d94f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Links de interesse.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Links de interesse"
+            }
+          },
+          {
+            "id": "db84b350fe2f725f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Links de interesse.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Links de interesse"
+            }
+          },
+          {
+            "id": "4b1d3b2b788faf70",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "2cc659e419b11129",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Links de interesse.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Links de interesse"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "marp-slides:Show Slide Preview": false
+    }
+  },
+  "active": "70a086a8695d17c5",
+  "lastOpenFiles": [
+    "ChatGPT e Redução de Danos - estratégias para driblar a Inteligência Artificial em sala de aula-a4.pdf",
+    "ChatGPT e Redução de Danos - estratégias para driblar a Inteligência Artificial em sala de aula.html",
+    "ChatGPT e Redução de Danos - estratégias para driblar a Inteligência Artificial em sala de aula.pdf",
+    "Truques de Marp.md",
+    "ChatGPT e Redução de Danos - estratégias para driblar a Inteligência Artificial em sala de aula.md",
+    "Imagens/20251007162352.png",
+    "Imagens/Pasted-image-20251007154702.png",
+    "Imagens/Pasted.md",
+    "Untitled.html",
+    "tema.css.md",
+    "Teste de marp 1.md",
+    "Links de interesse.md",
+    "Teste de marp.md",
+    "Imagens",
+    "Imagens/20251007190554.png",
+    "Imagens/20251007190541.png",
+    "Imagens/20251007185637.png",
+    "Imagens/20251007164133.png",
+    "Imagens/20251007163253.png",
+    "Imagens/20251007162801.png",
+    "Imagens/20251007162621.png",
+    "Imagens/20251007161333.png"
+  ]
+}
