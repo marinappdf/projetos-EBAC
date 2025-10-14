@@ -49,11 +49,11 @@ plt.show()
 # Baseado na interpolação entre exemplos existentes da classe minoritária
 
 
-    from imblearn.over_sampling import SMOTE
+from imblearn.over_sampling import SMOTE
 
-    smote = SMOTE(random_state=42)
-    X_train_balanced, y_train_balanced = smote.fit_resample(X_train, y_train)
-    train_balance = y_train_balanced.value_counts()
+smote = SMOTE(random_state=42)
+X_train_balanced, y_train_balanced = smote.fit_resample(X_train, y_train)
+train_balance = y_train_balanced.value_counts()
 
 print("Balanceamento em y_train:")
 print(train_balance)
