@@ -67,6 +67,21 @@ iqr = q3 - q1
 lower_bound = q1 - 1.5 * iqr
 upper_bound = q3 + 1.5 * iqr
 
+# $$ laço com IQR
+ 
+diqr = pd.DataFrame(columns=['min', 'max', 'upper_bound'])
+
+for campo in df.columns:
+    q1 = df[campo].quantile(0.25)
+    q3 = df[campo].quantile(0.75)
+    iqr = q3 - q1
+    # lower_bound = q1 - 1.5 * iqr
+    upper_bound = q3 + 1.5 * iqr
+    
+    diqr.loc[campo] = [df[campo].min(), df[campo].max(), upper_bound]
+
+print(diqr)
+
 # Remover outliers
 # df = df[(df['A'] >= lower_bound) & (df['A'] <= upper_bound)]
 mean_value = df['A'].mean()
