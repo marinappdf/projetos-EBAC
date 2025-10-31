@@ -161,20 +161,19 @@ for col in df.select_dtypes(include='object').columns:
 # de 1, utilizando o método `StandardScaler`. Já a normalização ajusta os valores para um
 #intervalo específico, geralmente entre 0 e 1, utilizando o método `MinMaxScaler`.
 
-#$ Normalização MinMaxScaler parte da biblioteca Scikit-learn.
-min_max_scaler = MinMaxScaler()
-df['idade_normalizada'] = min_max_scaler.fit_transform(df[['idade']])
-df['salário_normalizado'] = min_max_scaler.fit_transform(df[['salário']])
+# Faça a padronização usando os parâmetros do treino;
+# Use os mesmos parâmetros para transformar o teste;
+# Essa prática evita vazamento de informações do conjunto de teste para o treinamento.
 
-#$  RobustScaler
-# Um método de padronização que reduz o impacto de outliers ajustando os dados para
-# que tenham uma média de 0 e um desvio padrão de 1. Utiliza a mediana e o intervalo interquartil.
-# é menos sensível a valores extremos em comparação com o `StandardScaler` e o `MinMaxScaler`.
+scaler = StandardScaler()
+
+# Ajusta o scaler com os dados de treino e transforma os dados de treino
+X_train_scaled = scaler.fit_transform(X_train)
+# Aplica a mesma transformação (usando os parâmetros do treino) aos dados de teste
+X_test_scaled = scaler.transform(X_test)
 
 
 
-
-#$ Análise Exploratória (tbm usado para Visualização dos outliers)
 
 #$ Standart Scaler
 # Um método de padronização que ajusta os dados para que tenham uma média de 0 e
@@ -182,6 +181,14 @@ df['salário_normalizado'] = min_max_scaler.fit_transform(df[['salário']])
 scaler = StandardScaler()
 df['idade_padronizada'] = scaler.fit_transform(df[['idade']])
 df['salário_padronizado'] = scaler.fit_transform(df[['salário']])
+
+#$ Normalização MinMaxScaler parte da biblioteca Scikit-learn.
+min_max_scaler = MinMaxScaler()
+df['idade_normalizada'] = min_max_scaler.fit_transform(df[['idade']])
+df['salário_normalizado'] = min_max_scaler.fit_transform(df[['salário']])
+
+#$ Análise Exploratória (tbm usado para Visualização dos outliers)
+
 
 for campo in df.columns:
     fig = make_subplots(rows=1, cols=2, subplot_titles=[f'Histograma de {campo}', f'Box Plot de {campo}'])
@@ -211,11 +218,6 @@ for campo in df:
     plt.xlabel(f'{campo}')
     plt.ylabel('Frequência')
     plt.show()
-
-
-
-
-
 
 
 

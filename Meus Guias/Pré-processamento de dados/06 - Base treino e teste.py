@@ -15,4 +15,11 @@ print("Tamanho de X_train:", X_train.shape)
 print("Tamanho de X_test:", X_test.shape)
 print("Tamanho de y_train:", y_train.shape)
 print("Tamanho de y_test:", y_test.shape)
+
+print('Variáveis de teste:')
+print(f'Se os tamanhos das variáveis forem iguais, a separação foi bem sucedida:\nX: {X_test.shape[0]}\ny: {y_test.shape[0]}\n')
+print('Variáveis de treino:')
+print(f'Se os tamanhos das variáveis forem iguais, a separação foi bem sucedida:\nX: {X_train.shape[0]}\ny: {y_train.shape[0]}')
+
+
 #$ Cross Validation

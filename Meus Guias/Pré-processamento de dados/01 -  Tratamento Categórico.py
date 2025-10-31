@@ -6,8 +6,15 @@
 from sklearn.preprocessing import LabelEncoder
 label_encoder = LabelEncoder()
 df['Gender_encoded'] = label_encoder.fit_transform(df['Gender'])
-df.drop(['Gender'], axis = 1, inplace=True)
+
 df.head(5)
+
+label_encoder = LabelEncoder()
+categorias = ['Marital_Status', 'Education']
+for categoria in categorias:
+    df[categoria] = label_encoder.fit_transform(df[categoria])
+    
+# Para efetuar a transformação reversa, deve-se usar o método `inverse_transform()`, para obter a relação entre os números e as categorias, deve-se acessar a propriedade  `classes_`, como no exemplo.
 
 #$ One Hot Encoding
 # Cada coluna é transformada em duas colunas representando os valores possíveis (0 ou 1).
