@@ -30,12 +30,16 @@ plt.show()
 
 #$ Mapa Apenas da Variável Alvo
 
+
+#$ Mapa Apenas da Variável Alvo
+alvo = 'Purchased'
 correlation_matrix = df.select_dtypes(include=['number']).corr()
-correlation_matrix.sort_values(by='quality', ascending=False, inplace=True)
+correlation_matrix.sort_values(by=alvo, ascending=False, inplace=True)
 plt.figure(figsize=(10, 8))
-sns.heatmap(correlation_matrix[['quality']], annot=True, cmap='coolwarm', fmt=".2f", annot_kws={"size": 10})
+sns.heatmap(correlation_matrix[[alvo]], annot=True, cmap='coolwarm', fmt=".2f", annot_kws={"size": 10})
 plt.title('Matriz de Correlação')
 plt.show()
+
 
 #$ Mapa Apenas das Correlações Fortes
 plt.figure(figsize=(10, 8))
